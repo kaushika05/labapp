@@ -1,0 +1,46 @@
+/* App.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000, #990000);
+  position: relative;
+  color: #fff;
+}
+
+/* Targaryen sigil watermark */
+.App::before {
+  content: "";
+  background: url("https://upload.wikimedia.org/wikipedia/en/3/36/TargaryenSigil.jpg") center center no-repeat;
+  background-size: 300px;
+  opacity: 0.1;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* "Fire and Blood" text watermark */
+.App::after {
+  content: "Fire and Blood";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 3rem;
+  font-family: 'Georgia', serif;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+/* Ensure content appears above watermark elements */
+.App > * {
+  position: relative;
+  z-index: 1;
+}
